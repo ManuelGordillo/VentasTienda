@@ -6,16 +6,19 @@ package vistas;
 
 import javax.swing.JOptionPane;
 import modelo.EntidadVendedor;
-import modelo.VendedorDao;
+import modelo.VendedorDAO;
 
 
 public class LoginJFrame extends javax.swing.JFrame {
 
-    VendedorDao vdao = new VendedorDao();
+    VendedorDAO vdao = new VendedorDAO();
     EntidadVendedor entv = new EntidadVendedor();
+    
     public LoginJFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+        txtUser.setText("empleado");
+        txtPass.setText("45009282");
     }
 
     /**
@@ -117,17 +120,28 @@ public class LoginJFrame extends javax.swing.JFrame {
         validar();
     }//GEN-LAST:event_btnIngresarActionPerformed
 
-    public void validar(){
-        String dni = txtPass.getText();
-        String user = txtUser.getText();
-        if(txtUser.getText().equals("") || txtPass.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Ingrese datos correctos");
-            txtUser.requestFocus();
-        }else{
-           entv = vdao.ValidarVendedor(dni, user);
-           
-        }
+    public void validar() {
+    String user = txtUser.getText().trim();
+    String dni = new String(txtPass.getPassword()).trim(); 
+
+    if (user.isEmpty() || dni.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ingrese usuario y contraseña.");
+        txtUser.requestFocus();
+        return;
     }
+
+    entv = vdao.ValidarVendedor(dni, user); // asegúrate de que el método se llame así
+
+    if (entv != null && entv.getUsuario() != null && entv.getDni() != null) {
+        Principal p = new Principal();
+        p.setVisible(true);
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Credenciales incorrectas.");
+        txtUser.requestFocus();
+    }
+}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

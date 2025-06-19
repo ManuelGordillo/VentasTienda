@@ -1,20 +1,22 @@
-
 package modelo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.SQLException;
 
 public class Conexion {
-    Connection con;
-    String url = "jdbc:mysql://localhost:3306/bd_ventas";
-    String user = "root";
-    String pass = "12345678";
-    public Connection Conectar(){
+    private static final String URL = "jdbc:mysql://localhost:3306/bd_ventas?serverTimezone=UTC";
+    private static final String USER = "root";
+    private static final String PASS = "";
+
+    public Connection Conectar() {
+        Connection con = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(url,user,pass);
-        } catch (Exception e) {
+            con = DriverManager.getConnection(URL, USER, PASS);
+        } catch (SQLException e) {
+            System.out.println("Error de conexión: " + e.getMessage());
         }
         return con;
     }
 }
+
