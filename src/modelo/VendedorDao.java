@@ -13,8 +13,7 @@ public class VendedorDAO {
     String sql = "SELECT * FROM vendedor WHERE DNI = ? AND Usuario = ?";
     EntidadVendedor ev = null;
 
-    Connection acceso = con.Conectar(); // intenta conectar
-
+    Connection acceso = con.conectar(); 
     if (acceso == null) {
         System.out.println("❌ No se pudo establecer la conexión con la base de datos.");
         return null; // evita el NullPointerException
