@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/vistas/Principal.java</file>
-            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/vistas/LoginJFrame.java</file>
+            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/cliente/NodoCliente.java</file>
+            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/usuarios/ListaUsuarios.java</file>
+            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/formularios/Principal.java</file>
+            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/cliente/Cliente.java</file>
+            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/usuarios/Usuario.java</file>
+            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/formularios/Login.java</file>
+            <file>file:/C:/Users/manu_/Documents/NetBeansProjects/VentasTienda/src/cliente/ListaCliente.java</file>
         </group>
     </open-files>
 </project-private>
