@@ -2,21 +2,31 @@
 package usuarios;
 
 public class Usuario {
+    private int idUsuario;
     private String nombres;
     private String apellidos;
-    private String user;
-    private String cargo;
-    private String password;
+    private String nombreUsuario;
+    private String contrasena;
+    private String rol;
 
     public Usuario() {
     }
 
-    public Usuario(String nombres, String apellidos, String user, String cargo, String password) {
+    public Usuario(int idUsuario, String nombres, String apellidos, String nombreUsuario, String contrasena, String rol) {
+        this.idUsuario = idUsuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.user = user;
-        this.cargo = cargo;
-        this.password = password;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+        this.rol = rol;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombres() {
@@ -35,29 +45,34 @@ public class Usuario {
         this.apellidos = apellidos;
     }
 
-    public String getUser() {
-        return user;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public String getCargo() {
-        return cargo;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
-    public String getPassword() {
-        return password;
+    public String getRol() {
+        return rol;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nombres=" + nombres + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario + ", contrasena=" + contrasena + ", rol=" + rol + '}';
+    }
+    
     
 }
