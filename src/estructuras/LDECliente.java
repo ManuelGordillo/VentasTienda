@@ -1,13 +1,27 @@
-package cliente;
+package estructuras;
 
+import modelos.ClienteModel;
+import estructuras.nodos.Nodo;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ListaDoblementeEnlazada {
+public class LDECliente {
 
     private Nodo inicio, fin;
+    private static LDECliente INTANCE;    
 
-    public ListaDoblementeEnlazada() {
+    public static LDECliente getINTANCE()
+    {
+        if (INTANCE==null)
+        {
+            INTANCE=new LDECliente();           
+        }
+        return INTANCE;
+    }    
+    
+    public LDECliente() {
         inicio = fin = null;
     }
 
@@ -15,7 +29,7 @@ public class ListaDoblementeEnlazada {
         return inicio == null;
     }
 
-    public void agregarFin(Cliente cliente) {
+    public void agregarFin(ClienteModel cliente) {
         Nodo nuevo = new Nodo(cliente);
         if (esVacio()) {
             inicio = nuevo;
@@ -38,7 +52,7 @@ public class ListaDoblementeEnlazada {
 
         Nodo aux = inicio;
         do {
-            Cliente c = aux.getDato();
+            ClienteModel c = aux.getDato();
             modelo.addRow(new Object[]{
                 c.getIdCliente(),
                 c.getNombres(),
@@ -72,7 +86,7 @@ public class ListaDoblementeEnlazada {
         return null;
     }
 
-    public boolean actualizar(Cliente clienteActualizado) {
+    public boolean actualizar(ClienteModel clienteActualizado) {
         Nodo nodoEncontrado = buscar(clienteActualizado.getIdCliente());
         if (nodoEncontrado != null) {
             nodoEncontrado.setDato(clienteActualizado);
@@ -109,4 +123,50 @@ public class ListaDoblementeEnlazada {
 
         return false;
     }
+    
+    
+    public List<ClienteModel> recorrerRetornaListaFiltro(String sFiltro) {
+        List<ClienteModel> lista=new ArrayList<>();
+        if (esVacio()) {
+            return lista;
+        }
+        
+        Nodo aux = inicio;
+        do {
+            ClienteModel cli = aux.getDato();
+            if (sFiltro.trim().length()==0)
+            {
+                lista.add(cli);
+            }else
+            {
+                //Concatenamos la info de la tabla
+                String sCliente=cli.getNombres() + " " + cli.getApellidos();
+                //Si contiene la palabra filtramos
+                if (sCliente.toLowerCase().contains(sFiltro.toLowerCase())){
+                    lista.add(cli);
+                }
+            }
+
+            aux = aux.getSig();
+        } while (aux != inicio);
+        
+        return lista;        
+    } 
+
+    public ClienteModel buscarById(int id) {
+        if (esVacio()) {
+            return null;
+        }
+
+        Nodo aux = inicio;
+        do {
+            if (aux.getDato().getIdCliente()== id) {
+                return aux.getDato();
+            }
+            aux = aux.getSig();
+        } while (aux != inicio);
+
+        return null;
+    } 
+    
 }

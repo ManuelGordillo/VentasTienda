@@ -1,25 +1,27 @@
-package cliente;
+package estructuras.nodos;
+
+import modelos.ClienteModel;
 
 public class Nodo {
 
-    private Cliente dato;
+    private ClienteModel dato;
     private Nodo sig;
     private Nodo ant;
 
     public Nodo() {
     }
 
-    public Nodo(Cliente dato) {
+    public Nodo(ClienteModel dato) {
         this.dato = dato;
         this.sig = null;
         this.ant = null;
     }
 
-    public Cliente getDato() {
+    public ClienteModel getDato() {
         return dato;
     }
 
-    public void setDato(Cliente dato) {
+    public void setDato(ClienteModel dato) {
         this.dato = dato;
     }
 

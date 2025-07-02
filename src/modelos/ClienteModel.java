@@ -1,8 +1,8 @@
-package cliente;
+package modelos;
 
 //import javax.swing.JOptionPane;
 
-public class Cliente {
+public class ClienteModel {
 
     private int idCliente;
     private String nombres;
@@ -11,10 +11,10 @@ public class Cliente {
     private String correo;
     private String telefono;
 
-    public Cliente() {
+    public ClienteModel() {
     }
 
-    public Cliente(int idCliente, String nombres, String apellidos, String dni, String correo, String telefono) {
+    public ClienteModel(int idCliente, String nombres, String apellidos, String dni, String correo, String telefono) {
         this.idCliente = idCliente;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -35,6 +35,10 @@ public class Cliente {
     public String getNombres() {
         return nombres;
     }
+    
+    public String getNombreLargo() {
+        return nombres + " " + apellidos;
+    }    
 
     public void setNombres(String nombres) {
         this.nombres = nombres;

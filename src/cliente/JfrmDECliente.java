@@ -1,10 +1,12 @@
 
 package cliente;
 
+import modelos.ClienteModel;
+import estructuras.LDECliente;
 import javax.swing.table.DefaultTableModel;
 
 public class JfrmDECliente extends javax.swing.JFrame {
-    ListaDoblementeEnlazada listaClientes = new ListaDoblementeEnlazada();
+    LDECliente listaClientes = new LDECliente();
     DefaultTableModel modeloTabla;
 
 
@@ -220,7 +222,7 @@ public class JfrmDECliente extends javax.swing.JFrame {
             return;
         }
         
-        Cliente nuevo = new Cliente(nuevoId, nombres, apellidos, dni, correo, telefono);
+        ClienteModel nuevo = new ClienteModel(nuevoId, nombres, apellidos, dni, correo, telefono);
         listaClientes.agregarFin(nuevo);
         listaClientes.recorrerAdelante(modeloTabla);
         
