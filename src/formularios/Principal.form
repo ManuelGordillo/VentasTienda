@@ -69,10 +69,13 @@
             <Property name="text" type="java.lang.String" value="Ventas"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu10">
+            <Menu class="javax.swing.JMenu" name="mnuGenerarVenta">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Generar Venta"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnuGenerarVentaMouseClicked"/>
+              </Events>
             </Menu>
           </SubComponents>
         </Menu>
@@ -109,10 +112,13 @@
             <Property name="text" type="java.lang.String" value="Reportes"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu14">
+            <Menu class="javax.swing.JMenu" name="mnuReporteVenta">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reporte de ventas"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnuReporteVentaMouseClicked"/>
+              </Events>
             </Menu>
           </SubComponents>
         </Menu>

@@ -4,6 +4,8 @@
  */
 package formularios;
 
+import javax.swing.WindowConstants;
+
 /**
  *
  * @author manu_
@@ -38,13 +40,13 @@ public class Principal extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
+        mnuGenerarVenta = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
         jMenu12 = new javax.swing.JMenu();
         jMenu13 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenu14 = new javax.swing.JMenu();
+        mnuReporteVenta = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
 
@@ -83,8 +85,13 @@ public class Principal extends javax.swing.JFrame {
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo-ventas.png"))); // NOI18N
         jMenu5.setText("Ventas");
 
-        jMenu10.setText("Generar Venta");
-        jMenu5.add(jMenu10);
+        mnuGenerarVenta.setText("Generar Venta");
+        mnuGenerarVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuGenerarVentaMouseClicked(evt);
+            }
+        });
+        jMenu5.add(mnuGenerarVenta);
 
         jMenuBar1.add(jMenu5);
 
@@ -105,8 +112,13 @@ public class Principal extends javax.swing.JFrame {
         jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reportes.png"))); // NOI18N
         jMenu7.setText("Reportes");
 
-        jMenu14.setText("Reporte de ventas");
-        jMenu7.add(jMenu14);
+        mnuReporteVenta.setText("Reporte de ventas");
+        mnuReporteVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuReporteVentaMouseClicked(evt);
+            }
+        });
+        jMenu7.add(mnuReporteVenta);
 
         jMenuBar1.add(jMenu7);
 
@@ -125,6 +137,20 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnuGenerarVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuGenerarVentaMouseClicked
+        // TODO add your handling code here:
+        FrmRegistroVenta frmVenta=new FrmRegistroVenta();
+        frmVenta.setVisible(true);
+        frmVenta.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_mnuGenerarVentaMouseClicked
+
+    private void mnuReporteVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuReporteVentaMouseClicked
+        // TODO add your handling code here:
+        FrmReporteVentas frmRpt=new FrmReporteVentas();
+        frmRpt.setVisible(true);
+        frmRpt.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_mnuReporteVentaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -164,11 +190,9 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu13;
-    private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -180,5 +204,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu mnuGenerarVenta;
+    private javax.swing.JMenu mnuReporteVenta;
     // End of variables declaration//GEN-END:variables
 }

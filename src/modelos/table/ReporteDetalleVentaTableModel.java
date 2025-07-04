@@ -13,11 +13,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author rarteaga
  */
-public class DetalleVentaTableModel extends AbstractTableModel {
+public class ReporteDetalleVentaTableModel extends AbstractTableModel {
 
     private final String[] columnNames = {"Item","Producto","Cantidad","Precio","Total"};
     List<DetalleVentaModel> listadetalle;
-    public DetalleVentaTableModel( List<DetalleVentaModel> listadetalle)
+    public ReporteDetalleVentaTableModel( List<DetalleVentaModel> listadetalle)
     {
         this.listadetalle=listadetalle;
     }
@@ -37,16 +37,6 @@ public class DetalleVentaTableModel extends AbstractTableModel {
         return columnNames[column];
     }
 
-    @Override
-    public boolean isCellEditable(int rowIndex, int columnIndex) {
-        switch (columnIndex) {
-            case 2:                
-                return true;
-            default:
-                return false;
-        }
-    }
-    
     public void addItem(DetalleVentaModel item)
     {
         listadetalle.add(item);
@@ -69,15 +59,6 @@ public class DetalleVentaTableModel extends AbstractTableModel {
     {
         return listadetalle;
     }    
-    
-    public void actualizarNroItems()
-    {
-        for (int i = 0; i < listadetalle.size(); i++) {
-            listadetalle.get(i).setItem(i+1);
-        }
-         fireTableRowsUpdated(0, listadetalle.size()-1);
-    }
-    
     
     
     public double getTotal()
@@ -118,24 +99,4 @@ public class DetalleVentaTableModel extends AbstractTableModel {
         }
     }
 
-    @Override
-    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        DetalleVentaModel item=listadetalle.get(rowIndex);  
-        switch (columnIndex) {
-            case 2:                
-                try{
-                    item.setCantidad(Double.parseDouble(aValue.toString()));
-                    item.setTotal(item.getCantidad() * item.getPrecio());
-                } catch(NumberFormatException e)
-                {
-                    
-                }
-                break;
-        }
-        fireTableCellUpdated(rowIndex, columnIndex);
-        fireTableRowsUpdated(rowIndex, rowIndex);
-    }
-
-
-    
 }

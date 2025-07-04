@@ -12,13 +12,28 @@ import java.util.List;
  * @author rarteaga
  */
 public class VentaModel {
-    
+
     private int idventa;
-    private int idcliente;
+    private ClienteModel cliente;
     private String fecha;
     private double total;
     private int idusuario;
-    private  List<DetalleVentaModel> detalle;
+    private  List<DetalleVentaModel> detalle;    
+    
+    /**
+     * @return the cliente
+     */
+    public ClienteModel getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param cliente the cliente to set
+     */
+    public void setCliente(ClienteModel cliente) {
+        this.cliente = cliente;
+    }
+    
     /**
      * @return the idventa
      */
@@ -31,20 +46,6 @@ public class VentaModel {
      */
     public void setIdventa(int idventa) {
         this.idventa = idventa;
-    }
-
-    /**
-     * @return the idcliente
-     */
-    public int getIdcliente() {
-        return idcliente;
-    }
-
-    /**
-     * @param idcliente the idcliente to set
-     */
-    public void setIdcliente(int idcliente) {
-        this.idcliente = idcliente;
     }
 
     /**
